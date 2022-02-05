@@ -25,8 +25,12 @@ h1 {
   color: var(--main-red-color);
 }
 
-p {
+p, label {
   font-weight: bold;
+}
+
+.hide {
+  display: none;
 }
 
 .container {
@@ -35,6 +39,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .screenWrapper {
@@ -63,7 +68,9 @@ p {
   align-items: center;  
 }
 
-.screen-0__info p {
+.screen-0__info p,
+.screen-1__info p 
+{
   margin: 8px 0 0 0;
 }
 
@@ -92,6 +99,34 @@ p {
   background-color: #aaa;
 }
 
-.hide {
-  display: none;
+.screen-1__info__inputsWrapper {
+  display: flex;
+  margin-top: 50px;
+  width: 50%;
+  justify-content: space-between;
+}
+
+.inputPhoneWrapper,
+.inputCodeWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputPhoneWrapper label,
+.inputCodeWrapper label
+{
+  font-size: 12px;
+  padding-bottom: 5px;  
+}
+
+.inputPhoneWrapper .inputPhone,
+.inputCodeWrapper .inputCode
+{
+  font-size: 26px;
+  width: 11ch;
+  text-align: center;
+}
+
+.screen-1__btn button:disabled {
+  cursor: not-allowed
 }
