@@ -3,7 +3,7 @@ import * as screen1 from './library/screen1.js'
 
  screen0.runScreen1()
  
- screen1.runScreen2()
+ screen1.runScreen2(screen0.a)
 
 
 

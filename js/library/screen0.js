@@ -1,3 +1,4 @@
+export const a = 'a'
 export const runScreen1 = () => {
   const screenWrapper0 = document.querySelector(".screenWrapper__screen-0").parentElement  
   const screenWrapper1 = document.querySelector(".screenWrapper__screen-1").parentElement  

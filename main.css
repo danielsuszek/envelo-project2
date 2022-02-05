@@ -33,6 +33,10 @@ p, label, .phone__error, .code__error {
   display: none;
 }
 
+.error {
+  color: var(--main-red-color)
+}
+
 .container {
   width: 100vw;
   height: 100vh;
