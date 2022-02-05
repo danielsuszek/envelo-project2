@@ -25,7 +25,7 @@ h1 {
   color: var(--main-red-color);
 }
 
-p, label {
+p, label, .phone__error, .code__error {
   font-weight: bold;
 }
 
@@ -113,10 +113,18 @@ p, label {
 }
 
 .inputPhoneWrapper label,
-.inputCodeWrapper label
+.inputCodeWrapper label,
+.inputPhoneWrapper .phone__error,
+.inputCodeWrapper .code__error
 {
   font-size: 12px;
   padding-bottom: 5px;  
+}
+
+.inputPhoneWrapper .phone__error,
+.inputCodeWrapper .code__error
+{
+  color: var(--main-red-color)
 }
 
 .inputPhoneWrapper .inputPhone,

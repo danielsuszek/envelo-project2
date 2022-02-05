@@ -30,12 +30,14 @@
           <p>Rozpocznij klikając w przycisk.</p>
           <div class="screen-1__info__inputsWrapper">
             <div class="inputPhoneWrapper">
-              <label for="phone">Numer telefonu</label>
-              <input class="inputPhone" type="text" name="phone">
+              <label for="phone" class="phone__label">Numer telefonu</label>
+              <span class="phone__error hide">Error</span>
+              <input class="inputPhone" type="text" name="phone" value="" pattern="[0-9]+">
             </div>
             <div class="inputCodeWrapper">
-              <label for="code">Kod odbioru</label>
-              <input class="inputCode" type="text" name="code">
+              <label  for="code" class="code__label">Kod odbioru</label>
+              <span class="code__error hide">Error</span>
+              <input class="inputCode" type="text" name="code" disabled>
             </div>
           </div>
         </div>
