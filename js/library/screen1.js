@@ -13,7 +13,18 @@ const errors = {
   }
 }
 
+// helpers
 const hasWhiteSpace = (s) => /\s/g.test(s);
+
+const displayMessages = (el, isError) => {
+  if (isError) {
+    el.innerText = errors.phoneErr.errorMessage
+    el.classList.add('error')
+  } else {
+    el.innerText = errors.phoneErr.message
+    el.classList.remove('error')
+  }
+}
 
 export const runScreen2 = (p) => {
   const phone = document.querySelector('.inputPhone')
@@ -25,24 +36,19 @@ export const runScreen2 = (p) => {
   })
   phone.addEventListener('input', (e) => {   
     let val = e.target.value
+
+    // replace white spaces, white spaces are not allowed
     if (hasWhiteSpace(val)) {
       phone.value = val.replace(/\s/g, '') 
     } 
-    // let x = phone.value
-    // let isNumber = (!isNaN(phone.value)) ? false : true
-    errors.phoneErr.isError = (!isNaN(phone.value)) ? false : true
-    // let x = phone.value.toString().length
-    // console.log(phone.value.toString().length);
-    // console.log(p);
-    // console.log(errors.phoneErr.isError);
-    if (errors.phoneErr.isError) {
-      phone__label.innerText = errors.phoneErr.errorMessage
-      phone__label.classList.add('error')
-    } else {
-      phone__label.innerText = errors.phoneErr.message
-      phone__label.classList.remove('error')
-    }
 
+    // check phone nr in number
+    errors.phoneErr.isError = (!isNaN(phone.value)) ? false : true
+
+    // display messages in phone__label element
+    displayMessages(phone__label, errors.phoneErr.isError)
+
+    // if nr is valid focus on code input
     if (phone.value.toString().length === errors.phoneErr.validLength
         && !errors.phoneErr.isError
     ) 
