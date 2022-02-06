@@ -37,18 +37,18 @@ export const runScreen2 = (p) => {
   phone.addEventListener('input', (e) => {   
     let val = e.target.value
 
-    // replace white spaces, white spaces are not allowed
+    // replace white spaces with empty string, in my solution white spaces are not allowed
     if (hasWhiteSpace(val)) {
       phone.value = val.replace(/\s/g, '') 
     } 
 
-    // check phone nr in number
+    // check if phone is number
     errors.phoneErr.isError = (!isNaN(phone.value)) ? false : true
 
     // display messages in phone__label element
     displayMessages(phone__label, errors.phoneErr.isError)
 
-    // if nr is valid focus on code input
+    // if nr is valid enable and focus on code input
     if (phone.value.toString().length === errors.phoneErr.validLength
         && !errors.phoneErr.isError
     ) 
