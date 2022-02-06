@@ -69,7 +69,10 @@ export const runScreen2 = (p) => {
       code.value = val.replace(/\s/g, '') 
     } 
 
-    errors.codeErr.isError = (!isNaN(code.value)) ? false : true
+    errors.codeErr.isError = 
+    (!isNaN(code.value) 
+      && code.value.toString().length <= errors.codeErr.validLength)
+     ? false : true
 
     displayMessages(code__label, errors.codeErr.isError)
 
