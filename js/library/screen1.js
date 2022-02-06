@@ -17,25 +17,31 @@ const errors = {
 const hasWhiteSpace = (s) => /\s/g.test(s);
 
 const displayMessages = (el, isError) => {
+  // console.log(el.htmlFor);
+  let errName = el.htmlFor + 'Err'
+  console.log(errName);
   if (isError) {
-    el.innerText = errors.phoneErr.errorMessage
+    el.innerText = errors[errName].errorMessage
     el.classList.add('error')
   } else {
-    el.innerText = errors.phoneErr.message
+    el.innerText = errors[errName].message
     el.classList.remove('error')
   }
 }
 
+// component runScreen2
 export const runScreen2 = (p) => {
   const phone = document.querySelector('.inputPhone')
   const code = document.querySelector('.inputCode')
   const phone__label = document.querySelector('.phone__label')
+  const code__label = document.querySelector('.code__label')
+  const get__button = document.querySelector('.screen-1__btn button')
   
   phone.addEventListener('click', (e) => {
     code.disabled = true
   })
   phone.addEventListener('input', (e) => {   
-    let val = e.target.value
+    const val = e.target.value
 
     // replace white spaces with empty string, in my solution white spaces are not allowed
     if (hasWhiteSpace(val)) {
@@ -59,6 +65,26 @@ export const runScreen2 = (p) => {
   })
   
   code.addEventListener('input', (e) => {
-    console.log(code);
+    const val = e.target.value
+
+    if (hasWhiteSpace(val)) {
+      code.value = val.replace(/\s/g, '') 
+    } 
+
+    errors.codeErr.isError = (!isNaN(code.value)) ? false : true
+
+    displayMessages(code__label, errors.codeErr.isError)
+
+    if (code.value.toString().length === errors.codeErr.validLength
+        && !errors.codeErr.isError
+    ) 
+    {
+      get__button.disabled = false
+      console.log(get__button);
+      // get__button.style.cursor = 'pointer'
+    } else {
+      get__button.disabled = true
+    }
+
   })
 }
