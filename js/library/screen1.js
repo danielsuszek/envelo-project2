@@ -17,9 +17,7 @@ const errors = {
 const hasWhiteSpace = (s) => /\s/g.test(s);
 
 const displayMessages = (el, isError) => {
-  // console.log(el.htmlFor);
   let errName = el.htmlFor + 'Err'
-  console.log(errName);
   if (isError) {
     el.innerText = errors[errName].errorMessage
     el.classList.add('error')
@@ -79,12 +77,9 @@ export const runScreen2 = (p) => {
         && !errors.codeErr.isError
     ) 
     {
-      get__button.disabled = false
-      console.log(get__button);
-      // get__button.style.cursor = 'pointer'
+      get__button.disabled = false      
     } else {
       get__button.disabled = true
     }
-
   })
 }
