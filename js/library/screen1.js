@@ -34,6 +34,7 @@ export const runScreen2 = (p) => {
   const phone__label = document.querySelector('.phone__label')
   const code__label = document.querySelector('.code__label')
   const get__button = document.querySelector('.screen-1__btn button')
+  const modal = document.querySelector('.screenWrapper__screen-2-modal')
   
   phone.addEventListener('click', (e) => {
     code.disabled = true
@@ -84,5 +85,9 @@ export const runScreen2 = (p) => {
     } else {
       get__button.disabled = true
     }
+  })
+
+  get__button.addEventListener('click', () => {
+    modal.style.display = 'flex'
   })
 }
