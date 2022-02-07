@@ -4,7 +4,7 @@ import * as screen2Modal from './library/screen2Modal.js'
 
 screen0.runScreen1()
  
-screen1.runScreen2(screen0.a)
+screen1.runScreen2()
 
 screen2Modal.runCheckedScreen()
 
